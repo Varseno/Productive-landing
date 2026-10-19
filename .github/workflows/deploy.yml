@@ -25,4 +25,7 @@ jobs:
             git fetch origin main
             git checkout main
             git reset --hard origin/main
-            echo "Productive Landing source updated successfully"
+            pm2 restart productive-landing
+            pm2 save
+            curl -fsS http://127.0.0.1:3003/ -o /dev/null
+            echo "Productive Landing deployed and verified successfully"
