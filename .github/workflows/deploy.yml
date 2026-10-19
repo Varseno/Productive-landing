@@ -3,7 +3,7 @@ name: Deploy Productive Landing to VPS
 on:
   push:
     branches:
-      - deploy-vps
+      - main
   workflow_dispatch:
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
           script: |
             set -e
             cd /www/wwwroot/productive-landing
-            git fetch origin
-            git checkout deploy-vps
-            git reset --hard origin/deploy-vps
-            echo "VPS deployment files updated successfully"
+            git fetch origin main
+            git checkout main
+            git reset --hard origin/main
+            echo "Productive Landing source updated successfully"
